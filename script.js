@@ -30,15 +30,28 @@ function calculateResult() {
     return;
   }
 
+  let expression = display.value;
+
+  // Input validation
+  if (!/^[0-9+\-*/().\s]+$/.test(expression)) {
+    display.value = "Invalid Input";
+    return;
+  }
+
   try {
-    display.value = eval(display.value);
+    let answer = eval(expression);
+
+    display.value = answer;
+
+    // Save complete calculation
+    addHistory(expression + " = " + answer);
+
   } catch (error) {
     display.value = "Error: Invalid expression";
   }
 }
-
 function backspace() {
-  let display = document.getElementById("display");
+  const display = document.getElementById("display");
   display.value = display.value.slice(0, -1);
 }
 
@@ -48,7 +61,7 @@ function backspace() {
 function calculatePercentage() {
   let obtained = parseFloat(document.getElementById("obtained").value);
   let total = parseFloat(document.getElementById("total").value);
-  let result = document.getElementById("percentageResult");
+  const result = document.getElementById("percentageResult");
 
   if (isNaN(obtained) || isNaN(total)) {
     result.innerHTML = "Error: Please enter both obtained marks and total marks.";
@@ -123,7 +136,7 @@ function calculateCGPA() {
   let g4 = parseFloat(document.getElementById("g4").value);
   let g5 = parseFloat(document.getElementById("g5").value);
 
-  let result = document.getElementById("cgpaResult");
+  const  result = document.getElementById("cgpaResult");
 
   if (isNaN(g1) || isNaN(g2) || isNaN(g3) || isNaN(g4) || isNaN(g5)) {
     result.innerHTML = "Error: Please enter all 5 grade points.";
@@ -138,7 +151,7 @@ function calculateCGPA() {
     return;
   }
 
-  let cgpa = (g1 + g2 + g3 + g4 + g5) / 5;
+  const  cgpa = (g1 + g2 + g3 + g4 + g5) / 5;
   result.innerHTML = "CGPA = " + cgpa.toFixed(2);
   addHistory(
 
@@ -180,7 +193,7 @@ function calculateSI() {
     return;
   }
 
-  let si = (principal * rate * time) / 100;
+  const  si = (principal * rate * time) / 100;
   result.innerHTML = "Simple Interest = " + si.toFixed(2);
 }
 
@@ -413,23 +426,36 @@ displayHistory();
 
 
 
-window.onload=function(){
+window.onload = function () {
 
-let saved=
+    // Theme load
+    let savedTheme = localStorage.getItem("theme");
 
-localStorage.getItem(
+    if (savedTheme === "dark") {
+        document.body.classList.add("dark");
+         themeBtn.textContent = "☀️";
+    }
 
-"history"
+    // History load
+    let saved = localStorage.getItem("history");
 
-);
+    if (saved) {
+        history = JSON.parse(saved);
+        displayHistory();
+    }
 
-if(saved){
+};
 
-history=JSON.parse(saved);
+themeBtn.addEventListener("click", function () {
 
-displayHistory();
+    document.body.classList.toggle("dark");
 
-}
+    if (document.body.classList.contains("dark")) {
+        localStorage.setItem("theme", "dark");
+        themeBtn.textContent = "☀️";
+    } else {
+        localStorage.setItem("theme", "light");
+        themeBtn.textContent = "🌙";
+    }
 
-}
-
+});

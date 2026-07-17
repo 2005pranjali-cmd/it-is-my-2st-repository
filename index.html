@@ -1,16 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+       <!-- Meta Information -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Smart Student Utility Calculator</title>
   <link rel="stylesheet" href="style.css" />
+
 </head>
 <body>
+    <!-- Main Container -->
 
-  <div class="container">
+<div class="container">
+       <!--theme toggle button-->
+
+    <div class="top-bar">
+        <button id="themeBtn">🌙</button>
+    </div>
+    <!--project heading-->
+
     <h1>Smart Student Utility Calculator</h1>
     <p class="subtitle">A multi-feature calculator for students</p>
+
 
     <!-- Navigation Buttons -->
     <div class="menu">
@@ -25,7 +36,9 @@
     <!-- STANDARD CALCULATOR -->
     <div id="standard" class="section">
       <h2>Standard Calculator</h2>
+      <!--user input-->
       <input type="text" id="display" readonly />
+      <!--Action Buttons-->
 
       <div class="calc-buttons">
         <button onclick="appendValue('7')">7</button>
@@ -47,6 +60,7 @@
         <button onclick="appendValue('.')">.</button>
         <button onclick="backspace()">⌫</button>
         <button onclick="appendValue('+')">+</button>
+        <!--Display result-->
 
         <button onclick="calculateResult()">=</button>
         <button class="clear-btn" onclick="clearDisplay()">C</button>
@@ -58,15 +72,18 @@
   <h2>Percentage Calculator</h2>
 
   <label>Obtained Marks:</label>
+  <!--user inputs-->
   <input type="number" id="obtained" placeholder="Enter obtained marks"
          onkeydown="moveNext(event, 'total')" />
 
   <label>Total Marks:</label>
   <input type="number" id="total" placeholder="Enter total marks"
          onkeydown="handleLastEnter(event, 'percentage')" />
+         <!--Action Buttons-->
 
   <button onclick="calculatePercentage()">Calculate Percentage</button>
   <button onclick="resetPercentage()">Reset</button>
+  <!--Display result-->
   <p id="percentageResult" class="result"></p>
     </div>
 
@@ -75,6 +92,7 @@
   <h2>CGPA Calculator</h2>
 
   <label>Subject 1 Grade Point:</label>
+  <!--user inputs-->
   <input type="number" id="g1" placeholder="Enter grade point"
          onkeydown="moveNext(event, 'g2')" />
 
@@ -93,9 +111,11 @@
   <label>Subject 5 Grade Point:</label>
   <input type="number" id="g5" placeholder="Enter grade point"
          onkeydown="handleLastEnter(event, 'cgpa')" />
+         <!--Action Buttons-->
 
   <button onclick="calculateCGPA()">Calculate CGPA</button>
   <button onclick="resetCGPA()">Reset</button>
+  <!--Display result-->
   <p id="cgpaResult" class="result"></p>
 </div>
 
@@ -104,6 +124,7 @@
   <h2>Simple Interest Calculator</h2>
 
   <label>Principal Amount:</label>
+  <!--user input-->
   <input type="number" id="principal" placeholder="Enter principal amount"
          onkeydown="moveNext(event, 'rate')" />
 
@@ -114,9 +135,11 @@
   <label>Time (years):</label>
   <input type="number" id="time" placeholder="Enter time in years"
          onkeydown="handleLastEnter(event, 'si')" />
-
+         <!--Action Button-->
   <button onclick="calculateSI()">Calculate Simple Interest</button>
   <button onclick="resetSI()">Reset</button>
+  
+       <!--Display result-->
   <p id="siResult" class="result"></p>
 </div>
 
@@ -125,10 +148,13 @@
       <h2>Age Calculator</h2>
 
       <label>Date of Birth:</label>
+      <!--user input-->
       <input type="date" id="dob" />
 
+       <!--Action Button-->
       <button onclick="calculateAge()">Calculate Age</button>
       <button onclick="resetAge()">Reset</button>
+      <!--Display result-->
       <p id="ageResult" class="result"></p>
     </div>
 
@@ -138,6 +164,7 @@
   <h2>BMI Calculator</h2>
 
   <label>Weight (kg):</label>
+  <!--user input-->
   <input type="number" id="weight"
          placeholder="Enter weight in kg"
          onkeydown="moveNext(event, 'height')" />
@@ -147,14 +174,14 @@
          placeholder="Enter height in meters"
          step="0.01"
          onkeydown="handleLastEnter(event, 'bmi')" />
-
+         
+       <!--Action Button-->
   <button onclick="calculateBMI()">Calculate BMI</button>
   <button onclick="resetBMI()">Reset</button>
-
+       <!--Display result-->
   <p id="bmiResult" class="result"></p>
 
 </div>
-
 
 <!-- History Section -->
 
@@ -162,8 +189,10 @@
 
     <h2>Calculation History</h2>
 
+       <!-- Calculation History -->
     <ul id="historyList"></ul>
 
+       <!-- Clear History Button -->
     <button onclick="clearHistory()">
         Clear History
     </button>
@@ -172,6 +201,7 @@
 
 </div> <!-- container close -->
 
+<!-- JavaScript File -->
 <script src="script.js"></script>
 
 </body>
