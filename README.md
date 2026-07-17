@@ -1,5 +1,4 @@
-<img width="1677" height="1002" alt="Screenshot 2026-07-07 142414" src="https://github.com/user-attachments/assets/1f9761d4-8d6b-48bd-89ae-6e15763dd037" />
-<img width="1677" height="1002" alt="Screenshot 2026-07-07 142414" src="https://github.com/user-attachments/assets/97e381f2-b6ec-4d91-8855-bdfc060b65c1" />
+
 # Smart Student Utility Calculator
 
 A responsive web application built using HTML, CSS, and JavaScript. It provides multiple calculators and useful tools for students in one place.
@@ -15,13 +14,8 @@ A responsive web application built using HTML, CSS, and JavaScript. It provides 
 - Keyboard Support
 - Calculation History
 - Responsive Design
-
-## Technologies Used
-- HTML5
+  ##**Home page of the Smart Student Utility Calculator featuring a responsive design, multiple calculators, and dark mode.**
 - CSS3<img width="761" height="475" alt="image" src="https://github.com/user-attachments/assets/b61b985e-ed0c-41df-b79f-2568c8429ced" />
-<img width="1677" height="1002" alt="Screenshot 2026-07-07 142414" src="https://github.com/user-attachments/assets/9100776f-75c8-4902-903a-1ed417f01a7c" />
-
-- JavaScript
 
 ## How to Run
 1. Download or clone the repository.
